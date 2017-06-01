@@ -1,0 +1,44 @@
+{
+  "name": "abba",
+  "version": "0.0.1",
+  "description": "",
+  "main": "index.js",
+  "directories": {
+    "test": "test"
+  },
+  "scripts": {
+    "watch": "webpack --watch-stdin --progress --color"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/JartoDB/abba.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/JartoDB/abba/issues"
+  },
+  "homepage": "https://github.com/JartoDB/abba#readme",
+  "dependencies": {
+    "css-loader": "^0.28.4",
+    "react": "^15.5.4",
+    "react-dom": "^15.5.4",
+    "react-router": "^4.1.1",
+    "style-loader": "^0.18.1"
+  },
+  "devDependencies": {
+    "babel-core": "^6.24.1",
+    "babel-eslint": "^7.2.3",
+    "babel-loader": "^7.0.0",
+    "babel-preset-es2015": "^6.24.1",
+    "babel-preset-react": "^6.24.1",
+    "babel-preset-stage-0": "^6.24.1",
+    "eslint-plugin-import": "^2.3.0",
+    "eslint-plugin-jsx-a11y": "^5.0.3",
+    "eslint-plugin-react": "^7.0.1",
+    "react-hot-loader": "^3.0.0-beta.2",
+    "webpack": "^2.6.1",
+    "webpack-cli": "^1.3.3",
+    "webpack-dev-server": "^2.4.5"
+  }
+}
