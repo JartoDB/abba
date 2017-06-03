@@ -17,9 +17,24 @@ defmodule Abba.Mixfile do
   #
   # Type `mix help compile.app` for more information.
   def application do
-    [mod: {Abba, []},
-     applications: [:phoenix, :phoenix_pubsub, :phoenix_html, :cowboy, :logger, :gettext,
-                    :phoenix_ecto, :postgrex]]
+    [mod: {Abba, []}, applications: app_list(Mix.env)]
+  end
+
+  defp app_list(:dev), do: [:dotenv | app_list()]
+  defp app_list(_), do: app_list()
+  defp app_list do
+    [
+     :phoenix,
+     :phoenix_pubsub,
+     :phoenix_html,
+     :cowboy,
+     :logger,
+     :gettext,
+     :phoenix_ecto,
+     :postgrex,
+     :ex_aws,
+     :hackney,
+   ]
   end
 
   # Specifies which paths to compile per environment.
@@ -30,14 +45,20 @@ defmodule Abba.Mixfile do
   #
   # Type `mix help deps` for examples and options.
   defp deps do
-    [{:phoenix, "~> 1.2.4"},
-     {:phoenix_pubsub, "~> 1.0"},
-     {:phoenix_ecto, "~> 3.0"},
-     {:postgrex, ">= 0.0.0"},
-     {:phoenix_html, "~> 2.6"},
-     {:phoenix_live_reload, "~> 1.0", only: :dev},
-     {:gettext, "~> 0.11"},
-     {:cowboy, "~> 1.0"}]
+    [
+      {:phoenix, "~> 1.2.4"},
+      {:phoenix_pubsub, "~> 1.0"},
+      {:phoenix_ecto, "~> 3.0"},
+      {:postgrex, ">= 0.0.0"},
+      {:phoenix_html, "~> 2.6"},
+      {:phoenix_live_reload, "~> 1.0", only: :dev},
+      {:gettext, "~> 0.11"},
+      {:cowboy, "~> 1.0"},
+      {:ex_aws, "~> 1.1.2"},
+      {:hackney, "~> 1.7", override: true},
+      {:dotenv, "~> 2.0.0", only: :dev},
+      {:sweet_xml, "~> 0.6.5"},
+    ]
   end
 
   # Aliases are shortcuts or tasks specific to the current project.
